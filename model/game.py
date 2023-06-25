@@ -3,14 +3,13 @@ import logging
 from decorators.decorator import logged
 from exceptions.exception import GameIsAlreadyRunningException
 
+
 class Game(ABC):
     def __init__(self, publisher, release_date):
         self.publisher = publisher
         self.release_date = release_date
         self.current_players = 0
-
-    def __str__(self):
-        return f'Game {self.publisher}'
+        self.progress = 0
 
     def __repr__(self):
         return f'Game {self.publisher}'
@@ -34,9 +33,6 @@ class Game(ABC):
             "Release date : % s\n" \
             "Current players : % s\n" % \
             (self.publisher, self.release_date, self.current_players)
-
-    def __init__(self):
-        self.progress = 0
 
     @logged(GameIsAlreadyRunningException, mode='console')
     def play(self):

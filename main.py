@@ -4,8 +4,6 @@ from model.classic_board_game import ClassicBoardGame
 from model.computer_game import ComputerGame
 from model.game import Game
 from manager.game_manager import GameManager
-from decorators.decorator import logged
-from exceptions.exception import GameIsAlreadyRunningException
 
 if __name__ == "__main__":
 
@@ -63,7 +61,7 @@ if __name__ == "__main__":
     for x, game in example_of_zip:
         print(x, game)
 
-    game10 = Game()
+    game10 = Game('Valve', '2022')
 
     game10.play()  # При першому виклику методу play винятків не виникає
 
